@@ -1,0 +1,30 @@
+body {
+    min-width:500px;
+}
+
+.header {
+    width: 100%;
+    height: 60px;
+    padding: 15px 10px 10px 10px;
+    background-color: #F07D00;
+}
+
+.centered {
+    text-align: center;
+}
+
+#close {
+    position: absolute;
+    right: 0;
+    margin: 3px 5px 0 5px;
+}
+
+.chegg-logo {
+    width: 100px;
+}
+
+/* remove style for default button */
+button {
+    background: none;
+    border: none;
+}

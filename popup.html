@@ -2,10 +2,39 @@
 <html>
   <head>
     <title>Chegg Concept Search Plugin</title>
-    <script src="popup.js"></script>
+      
+    <!-- dependencies: jquery, bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+      
+    <!-- local js script -->
+    <script src="js/popup.js"></script>
+      
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
   </head>
+    
   <body>
-    <h1>Chegg</h1>
-    <button id="search-btn">Search</button>
+      
+    <div class="header centered">
+        <img class="chegg-logo" src="Images/chegg.png">
+        
+        <button id="close">
+            <img src="Images/close-btn.png" alt="close">
+        </button>
+        
+    </div>
+    <div class="fixed-size container centered">
+        <div class="search-bar">
+            <form>
+              <input type="text" name="search-keyword" placeholder="Search for concept">
+              <input type="submit" value="Submit">
+            </form>
+            <div>
+                <a href="https://chegg.com">or visit chegg.com</a>
+            </div>
+          </div>
+    </div>
+      
   </body>
 </html>
