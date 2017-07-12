@@ -68,3 +68,7 @@ input:focus {
 .search-bar{
     padding: 20px;
 }
+
+a.link-to-chegg {
+    font-size: 10pt;
+}
