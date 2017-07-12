@@ -30,3 +30,37 @@ button {
     background: none;
     border: none;
 }
+
+input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+    border-radius: 0;
+    outline: none;
+    height: 3rem;
+    width: 80%;
+    font-size: 1rem;
+    margin: 0 15px 20px 18px;
+    padding: 0;
+    box-shadow: none;
+    box-sizing: content-box;
+    transition: all 0.3s;
+}
+
+input:focus {
+    border-bottom: 2px solid #F07D00;
+}
+
+.fa-search{
+    position: absolute;
+    color: #F07D00;
+    display: inline;
+    right: 20%;
+    top: 90px;
+    font-size: 150%;
+    transform: scaleX(-1);
+}
+
+.search-bar{
+    padding: 20px;
+}
