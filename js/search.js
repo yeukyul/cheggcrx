@@ -5,6 +5,7 @@ $(function() {
     
     $('.concept-definition').hide();
     $('.footer').hide();
+    $('.go-to-chegg').hide();
     hideStudyQuestion();
     
     $('.search-bar').slideDown("slow");
@@ -48,9 +49,12 @@ $(function() {
         $current.addClass('selected');
     });
     
-    $("li").click(function() {
-        alert($(this).html()); // gets innerHTML of clicked li
-        alert($(this).text()); // gets text contents of clicked li
+    
+    $('.btn-concept').click(function() {
+        var search_term = $(this).attr("value");
+        //alert(search_term);
+        //console.log(search_term);
+        getWikipediaExtract(search_term);
     });
     
     // for wikipedia query submit
@@ -76,6 +80,10 @@ $(function() {
             }
         });
     });
+    
+    $('.folder-card').click(function() {
+        
+    });
         
 });
 
@@ -84,6 +92,8 @@ function displayLiveSearchResult(search_term, suggestion) {
     if (!suggestion && !search_term) {
         $('.search-result').html('');
         $('.link-to-chegg').show();
+        $('.footer').hide();
+        $('.go-to-chegg').hide();
     } else if (!suggestion) {
         showFailureResult(search_term);
     } else {
@@ -145,9 +155,7 @@ function showSearchResult(title, subject, extract) {
         + "<h1>" + toTitleCase(title) + "</h1>"
         + (subject? 
            ("<h5 class='concept-subtitle'> as " + subject + "</h5>") : "")
-        + "</div>"
-        + "<div class='col-sm-4'>"
-        //+ "<i class='fa fa-plus fa-lg' aria-hidden='true'></i>"
+        + "<small><a class='save-concept' href='#'>+ Save Concept</a></small>"
         + "</div>"
         + "</div>";
         explanation = explanation + "<p>" + extract + "</p>";
@@ -157,6 +165,7 @@ function showSearchResult(title, subject, extract) {
         showStudyQuestion(title);
         showAvailableTutor(title);
         $('.footer').show();
+        $('.go-to-chegg').show();
     }
 }
 
@@ -227,9 +236,26 @@ function showAvailableTutor(search_term) {
         '<hr>'
         + '<div class="section-header">'
         + 'AVAILBLE CHEGG TUTOR'
-        + '</div>');
+        + '</div>'
+        + '<span class="tutor-profile">'
+        + '<img class="tutor-img" src="Images/tutor1.jpg">'
+        + '<p class="tutor-title">Alex</p>'
+        + '</span>'
+        + '<span class="tutor-profile">'
+        + '<img class="tutor-img" src="Images/tutor2.jpg">'
+        + '<p class="tutor-title">Nina</p>'
+        + '</span>'
+        + '<span class="tutor-profile">'
+        + '<img class="tutor-img" src="Images/tutor3.jpeg">'
+        + '<p class="tutor-title">Ben</p>'
+        + '</span>'
+        + '<span class="tutor-profile">'
+        + '<img class="tutor-img" src="Images/tutor4.jpeg">'
+        + '<p class="tutor-title">Amy</p>'
+        + '</span>');
 }
         
 function hideAvailableTutor() {
     $('.tutors').hide();
 }
+

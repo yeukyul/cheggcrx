@@ -73,14 +73,14 @@ input:focus {
     transform: scaleX(-1);
 }
 
-.fa-chevron-down {
+.fa-chevron-down, .fa-chevron-up, .fa-plus.new-folder {
     color: #fff;
 } 
-.fa-chevron-down:hover {
+.fa-chevron-down:hover, .fa-chevron-up:hover, .fa-plus.new-folder:hover {
     color: #d3d3d3;
 }
 
-.fa-plus {
+.add-concept.fa-plus {
     float: right;
     color: #F07D00;
 }
@@ -113,7 +113,6 @@ button:focus {
 
 .btn-primary, .btn-primary-lg {
     border-color: #2CAEA6;
-    background-color: #2CAEA6;
     background-color: transparent;
     color: #2CAEA6;
     
@@ -131,6 +130,24 @@ button:focus {
     color: #FFF;
 }
 
+button.btn-concept {
+    border-color: #fff;
+    background-color: transparent;
+    color: #fff;
+    display: inline-block;
+}
+
+button.btn-concept:hover {
+    border-color: #fff;
+    background-color: #fff;
+    color: #F07D00;
+}
+
+button.btn-concept:active:focus { 
+    border-color: #fff;
+    background-color: #fff;
+    color: #F07D00;
+}
 
 ul.live-search-list {
     list-style-type: none;
@@ -150,7 +167,7 @@ li.live-search-item:hover {
 }
 
 .concept-definition {
-    padding: 0 60px 0px 60px;
+    padding: 10px 50px 10px 50px;
     max-height: 300px;
     overflow-y: scroll;
 }
@@ -175,7 +192,7 @@ p {
 }
 
 .file-bar {
-   display: none;
+   
    padding: 20px 20px 0 20px;
    background-color: #F07D00; 
 }
@@ -199,7 +216,7 @@ p {
 
 /* chegg study section */
 .study-question {
-    padding: 10px 50px 10px 50px;
+    padding: 0px 50px 10px 50px;
 }
 .question {
     margin: 5px 0px 5px 0px;
@@ -213,9 +230,57 @@ p {
 }
 
 .tutors {
-    padding: 10px 50px 10px 50px;
+    padding: 0px 50px 10px 50px;
 }
 
 .footer {
-    height: 20px;
+    height: 10px;
+}
+
+#menu {
+    display: none;
+}
+
+.menu-title {
+    font-size: 10pt;
+    color: #fff;
+    margin: 10px 0 14px 14px;
+}
+
+.concept-collection {
+    overflow-x: scroll;
+    margin-bottom: 20px;
+}
+
+/* tutor-profile */
+img.tutor-img {
+	height:40px;
+	width:40px;
+	border-radius: 50%;
+    margin: 10px;
+}
+
+img.tutor-img:hover {
+	border-radius: 30%;
+	border-style:solid;
+	border-color:orange;
+}
+
+.tutor-profile {
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+}
+
+.tutor-title {
+    padding: 0;
+    margin: 0;
+}
+
+.go-to-chegg {
+    margin: 5px;
+}
+
+.save-concept {
+    color: #F07D00;
 }
