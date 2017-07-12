@@ -14,13 +14,10 @@ $(function() {
         }
     });
     
-    
-    
     $('#concept-search').submit(function() {
         console.log("you pressed submit");
         var search_term = $('#search-keyword').val();
         getWikipediaExtract(search_term);
-        
         event.preventDefault();
     });
         
@@ -40,15 +37,32 @@ function getWikipediaExtract(search_term) {
             var extract = page['extract'];
             var title = page['title'];
             var subject = "";
-            showSearchResult(title, subject, extract);
+            console.log(typeof(page_id));
+            if (page_id === '-1') {
+                showFailureResult(title);
+            } else {
+                showSearchResult(title, subject, extract);
+            }
          },
          error: function(){
-           console.log('failure in getting wikipedia response');
+           showFailureResult(title);
          }
     });
 }
 
 // placeholder: here before front-end is ready
 function showSearchResult(title, subject, extract) {
-    $('.search-result').html(extract);
+    if (!extract) {
+        showFailureResult(title);
+    } else {
+        $('.search-result').html(extract);
+    }
+}
+
+function showFailureResult(title) {
+    $('.search-result').html("<div class='centered no-result'>Sorry, no extract relevant to " + title + " available. </div>");
+}
+
+function errorOccured() {
+    $('.search-result').html("Sorry, error occured. Please try again.");
 }
