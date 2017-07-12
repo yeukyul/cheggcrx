@@ -159,6 +159,7 @@ function showSearchResult(title, subject, extract) {
         + "</div>"
         + "</div>";
         explanation = explanation + "<p>" + extract + "</p>";
+        explanation = explanation + "<small>From Wikipedia API</small>"
         $('.search-result').html('');
         $('.concept-definition').html(explanation);
         $('.concept-definition').show();
