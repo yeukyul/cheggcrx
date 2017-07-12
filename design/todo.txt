@@ -1,0 +1,22 @@
+On front-end, create functions:
+    
+    /* Data should be a list of object, example data should look like:
+     * data = [{concept: "Chain Rule", category: "Calculus"},
+                {concept: "Chai Tea", category: "Art of Tea"}]
+     */
+    function updateSearch(data);
+    
+    /* close the search result box and empty all string in text field */
+    function closeSearch();
+    
+    (!) create event listener for all list in search result
+    
+    
+    
+On back-end, create features:
+    (1) live search when user types in query string
+    (2) link chegg account to plugin
+    (3) able to highlight a concept and search on api
+    (4) able to store concept and export pdf -> chrome.storage
+    (5) allow user to view the stored result
+    (6)

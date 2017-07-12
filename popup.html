@@ -6,12 +6,12 @@
     <!-- local js script -->
     <script src="js/jquery_1.11.3_min.js"></script>
     <script src="js/popup.js"></script>
+    <script src="js/search.js"></script>
       
     <!-- stylesheets -->
     <link rel="stylesheet" href="css/bootstrap_4.0.0_min.css">
-    <link rel="stylesheet" href="font-awesome_4.7.9_min.css">
+    <link rel="stylesheet" href="css/font-awesome_4.7.9_min.css">
     <link rel="stylesheet" href="css/main.css">
-      
   </head>
     
   <body>
@@ -29,9 +29,9 @@
     <!-- Search Bar -->
     <div class="fixed-size container centered">
             <div class="search-bar">
-                <form>
-                  <input type="text" name="search-keyword" placeholder="Search for concept">
-                  <input type="submit" value="Submit">
+                <form id="concept-search">
+                  <input type="text" name="search-keyword" id="search-keyword" placeholder="Search for concept">
+                  <input type="submit" value="Submit" id="search-submit">
                 </form>
                 <!-- Visit Chegg -->
                 <div>
