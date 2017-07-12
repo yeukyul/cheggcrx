@@ -4,6 +4,8 @@
 $(function() {
     
     $('.concept-definition').hide();
+    $('.footer').hide();
+    hideStudyQuestion();
     
     $('.search-bar').slideDown("slow");
     
@@ -20,7 +22,6 @@ $(function() {
     // allow arrow key to move down the list
     var $listItems = $('li');
     $('input').keydown(function(e) {
-        console.log("enter");
         var key = e.keyCode,
             $selected = $listItems.filter('.selected'),
             $current;
@@ -99,6 +100,9 @@ function displayLiveSearchResult(search_term, suggestion) {
         $('.search-result').html(display_list);
         $('.link-to-chegg').hide();
         $('.concept-definition').html('');
+        hideStudyQuestion();
+        hideAvailableTutor();
+        $('.footer').hide();
     }
     
 }
@@ -150,6 +154,9 @@ function showSearchResult(title, subject, extract) {
         $('.search-result').html('');
         $('.concept-definition').html(explanation);
         $('.concept-definition').show();
+        showStudyQuestion(title);
+        showAvailableTutor(title);
+        $('.footer').show();
     }
 }
 
@@ -175,4 +182,54 @@ $('.live-search-item').click(function(el) {
 
 function selectItem() {
     
+}
+
+function showStudyQuestion(search_term) {
+    $('.study-question').show();
+    $('.study-question').html(
+        '<hr>'
+        + '<div class="section-header">'
+        + 'CHEGG STUDY QnA'
+        + '</div>'
+        +'<div class="question">' 
+            + '<strong>Q: Why is '
+            + search_term
+            + ' useful?</strong>'
+            + '<br>'
+            + 'A: According to textbook, '
+            + search_term 
+            + ' is...'
+            + '<a href="http://chegg.com">'
+            + '<small>see more >></small>'
+            + '</a>'
+            + '</div>'
+        +'<div class="question">' 
+            + '<strong>Q: What are some application of '
+            + search_term
+            + '?</strong>'
+            + '<br>'
+            + 'A: '
+            + search_term 
+            + ' is a the fundamental...'
+            + '<a href="http://chegg.com">'
+            + '<small>see more >></small>'
+            + '</a>'
+            + '</div>');
+}
+
+function hideStudyQuestion() {
+     $('.study-question').hide();
+}
+
+function showAvailableTutor(search_term) {
+    $('.tutors').show();
+    $('.tutors').html(
+        '<hr>'
+        + '<div class="section-header">'
+        + 'AVAILBLE CHEGG TUTOR'
+        + '</div>');
+}
+        
+function hideAvailableTutor() {
+    $('.tutors').hide();
 }

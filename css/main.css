@@ -54,11 +54,12 @@ input:focus {
 }
 
 .fa-search{
-    position: absolute;
+    position: relative;
     color: #d3d3d3;
     display: inline;
-    right: 20%;
-    top: 90px;
+    right: 30%;
+    /* top: 90px;*/
+    bottom: 0;
     font-size: 150%;
     transform: scaleX(-1);
 }
@@ -113,13 +114,21 @@ button:focus {
 .btn-primary, .btn-primary-lg {
     border-color: #2CAEA6;
     background-color: #2CAEA6;
-    color: #FFF;
+    background-color: transparent;
+    color: #2CAEA6;
+    
     height: 44px;
     line-height: 44px;
     line-height: 0px\0;
     border-radius: 8px;
     font-size: 16px;
     padding: 0 40px;
+}
+
+.btn-primary:hover, .btn-primary-lg:hover {
+    border-color: #2CAEA6;
+    background-color: #2CAEA6;
+    color: #FFF;
 }
 
 
@@ -129,7 +138,7 @@ ul.live-search-list {
 }
 
 li.live-search-item {
-    height: 40px;
+    height: 30px;
     cursor: pointer;
 }
 li.live-search-item:hover {
@@ -142,7 +151,6 @@ li.live-search-item:hover {
 
 .concept-definition {
     padding: 0 60px 0px 60px;
-    margin-bottom: 30px;
     max-height: 300px;
     overflow-y: scroll;
 }
@@ -164,4 +172,50 @@ p {
 
 .selected {
     background-color: red;
+}
+
+.file-bar {
+   display: none;
+   padding: 20px 20px 0 20px;
+   background-color: #F07D00; 
+}
+
+.orange-div {
+    color: #fff;
+}
+
+.folder-card {
+    display: inline-block;
+    width: 75px;
+    text-align: center;
+}
+
+.folder-card:hover {
+    color: #d3d3d3;
+}
+
+.plus-right {
+}
+
+/* chegg study section */
+.study-question {
+    padding: 10px 50px 10px 50px;
+}
+.question {
+    margin: 5px 0px 5px 0px;
+    font-size: 11pt;
+}
+
+.section-header {
+    color: grey;
+    font-size: 9pt;
+    margin: 5px 0 12px 0;
+}
+
+.tutors {
+    padding: 10px 50px 10px 50px;
+}
+
+.footer {
+    height: 20px;
 }
