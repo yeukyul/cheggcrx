@@ -16,25 +16,41 @@
     
   <body>
       
+    <!-- Chegg Header -->
     <div class="header centered">
-        <img class="chegg-logo" src="Images/chegg.png">
-        
-        <button id="close">
-            <img src="Images/close-btn.png" alt="close">
-        </button>
-        
-    </div>
+            <img class="chegg-logo" src="Images/chegg.png">
+
+            <button id="close">
+                <img src="Images/close-btn.png" alt="close">
+            </button>
+
+        </div>
+    
+    <!-- Search Bar -->
     <div class="fixed-size container centered">
-        <div class="search-bar">
-            <form>
-              <input type="text" name="search-keyword" placeholder="Search for concept">
-              <input type="submit" value="Submit">
-            </form>
-            <div>
-                <a href="https://chegg.com">or visit chegg.com</a>
-            </div>
-          </div>
-    </div>
+            <div class="search-bar">
+                <form>
+                  <input type="text" name="search-keyword" placeholder="Search for concept">
+                  <input type="submit" value="Submit">
+                </form>
+                <!-- Visit Chegg -->
+                <div>
+                    <a href="https://chegg.com">or visit chegg.com</a>
+                </div>
+              </div>
+        </div>
+
+    <!-- Search Result -->
+      <div class="fixed-size container search-result"></div>
+      
+    <!-- Concept Definition -->
+      <div class="fixed-size container concept-definition"></div>
+      
+    <!-- Chegg Study Questions -->
+      <div class="fixed-size container study-question"></div>
+      
+    <!-- Chegg Tutor -->
+      <div class="fixed-size container tutors"></div>
       
   </body>
 </html>
