@@ -9,7 +9,7 @@
     {
       "matches": ["http://*/*", "https://*/*"],
       "css": ["css/main.css"],
-      "js": ["js/search.js", "js/popup.js"],
+      "js": ["js/search.js", "js/popup.js", "js/sliiide.min.js"],
       "run_at": "document_start"
     }
   ],

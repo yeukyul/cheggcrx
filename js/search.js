@@ -17,8 +17,43 @@ $(function() {
         }
     });
     
+    // allow arrow key to move down the list
+    var $listItems = $('li');
+    $('input').keydown(function(e) {
+        console.log("enter");
+        var key = e.keyCode,
+            $selected = $listItems.filter('.selected'),
+            $current;
+        if ( key != 40 && key != 38 ) return;
+        $listItems.removeClass('selected');
+        // down key
+        if ( key == 40 ) {
+            if ( ! $selected.length || $selected.is(':last-child') ) {
+                $current = $listItems.eq(0);
+            }
+            else {
+                $current = $selected.next();
+            }
+        }
+        // Up key
+        else if ( key == 38 ) {
+            if ( ! $selected.length || $selected.is(':first-child') ) {
+                $current = $listItems.last();
+            }
+            else {
+                $current = $selected.prev();
+            }
+        }
+        $current.addClass('selected');
+    });
+    
+    $("li").click(function() {
+        alert($(this).html()); // gets innerHTML of clicked li
+        alert($(this).text()); // gets text contents of clicked li
+    });
+    
+    // for wikipedia query submit
     $('#concept-search').submit(function() {
-        console.log("you pressed submit");
         var search_term = toTitleCase($('#search-keyword').val());
         getWikipediaExtract(search_term);
         event.preventDefault();
@@ -137,6 +172,7 @@ $('.live-search-item').click(function(el) {
     console.log(search_string);
 })
 
-$('#close').click(function() {
-    window.close();
-});
+
+function selectItem() {
+    
+}

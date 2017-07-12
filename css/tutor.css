@@ -1,0 +1,9 @@
+img.tutor-img {
+    border-radius: 50%
+}
+
+img.tutor-img:hover {
+    border-radius: 50%;
+    border-style:solid;
+    border-color:orange;
+}
