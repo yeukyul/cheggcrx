@@ -5,7 +5,6 @@
  */
 
 console.log('hello');
+
 $('#close').click({
-    window.close();
-    console.log("clicked");
 });
