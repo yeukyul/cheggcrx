@@ -3,12 +3,15 @@
 
 $(function() {
     
+    $('.concept-definition').hide();
+    
+    $('.search-bar').slideDown("slow");
+    
     // obtain 
     chrome.tabs.executeScript( {
         code: "window.getSelection().toString();"
     }, function(selection) {
         var selected_text = selection[0];
-        console.log(selected_text);
         if (selected_text) {
           getWikipediaExtract(selected_text);
         }
@@ -16,21 +19,19 @@ $(function() {
     
     $('#concept-search').submit(function() {
         console.log("you pressed submit");
-        var search_term = $('#search-keyword').val();
+        var search_term = toTitleCase($('#search-keyword').val());
         getWikipediaExtract(search_term);
         event.preventDefault();
     });
     
     /* opensearch */
     $("#search-keyword").keyup(function() {
-        var search_term = $('#search-keyword').val();
-        console.log("keyup! ", search_term);
+        var search_term = toTitleCase($('#search-keyword').val());
         $.ajax({
             url: 'https://en.wikipedia.org/w/api.php?action=opensearch&limit=5&format=json&search=' + search_term,
             type: 'GET',
             dataType: "json",
             success: function(data) {
-                console.log("got response", data[1]);
                 displayLiveSearchResult(search_term, data[1]);
             },
             error: function(e) {
@@ -50,14 +51,19 @@ function displayLiveSearchResult(search_term, suggestion) {
     } else if (!suggestion) {
         showFailureResult(search_term);
     } else {
-        var display_list = "<ul>";
+        var display_list = "<ul class='live-search-list'>";
         for (var i = 0; i < suggestion.length; i++) {
-            display_list = display_list + "<li>" + suggestion[i] + "</li>";
+            display_list = display_list + "<li class='live-search-item'>" + suggestion[i] + "</li>";
         }
-        display_list = display_list + "</ui>";
-        console.log(display_list);
+        display_list = display_list + "</ui>" 
+                + "<div class='fixed-size container centered see-more'>" 
+                + "<button class='btn-primary btn-lg'>"
+                + "<a href='http://www.chegg.com/search/"
+                + search_term
+                + "'></a>SEE MORE AT CHEGG.COM</button></div>";
         $('.search-result').html(display_list);
         $('.link-to-chegg').hide();
+        $('.concept-definition').html('');
     }
     
 }
@@ -66,7 +72,7 @@ function displayLiveSearchResult(search_term, suggestion) {
 function getWikipediaExtract(search_term) {
     // run concept search
     $.ajax({
-         url: 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=' 
+         url: 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts|pageterms&exintro=&explaintext=&titles=' 
                 + search_term,
          type : 'GET',
          success: function(data){
@@ -74,7 +80,8 @@ function getWikipediaExtract(search_term) {
             var page = data['query']['pages'][page_id];
             var extract = page['extract'];
             var title = page['title'];
-            var subject = "";
+             console.log(page);
+            var subject = page["terms"] ? page["terms"]["description"] : "";
             if (page_id === '-1') {
                 showFailureResult(title);
             } else {
@@ -88,21 +95,48 @@ function getWikipediaExtract(search_term) {
 }
 
 
-
-
 // placeholder: here before front-end is ready
 function showSearchResult(title, subject, extract) {
     if (!extract) {
         showFailureResult(title);
     } else {
-        $('.search-result').html(extract);
+        $('.link-to-chegg').hide();
+        var explanation = "<div class='concept-title row'>"
+        + "<div class='col-sm-8'>"
+        + "<h1>" + toTitleCase(title) + "</h1>"
+        + (subject? 
+           ("<h5 class='concept-subtitle'> as " + subject + "</h5>") : "")
+        + "</div>"
+        + "<div class='col-sm-4'>"
+        //+ "<i class='fa fa-plus fa-lg' aria-hidden='true'></i>"
+        + "</div>"
+        + "</div>";
+        explanation = explanation + "<p>" + extract + "</p>";
+        $('.search-result').html('');
+        $('.concept-definition').html(explanation);
+        $('.concept-definition').show();
     }
 }
 
 function showFailureResult(title) {
-    $('.search-result').html("<div class='centered no-result'>Sorry, no extract relevant to " + title + " available. </div>");
+    $('.search-result').html("<div class='centered no-result'>Sorry, no extract relevant to <strong>" + title + "</strong> available. </div>");
 }
 
 function errorOccured() {
     $('.search-result').html("Sorry, an unknown error occured. Please try again.");
 }
+
+function toTitleCase(str) {
+    return str;
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+
+// event listener for search item click
+$('.live-search-item').click(function(el) {
+    var search_string = el.val();
+    console.log(search_string);
+})
+
+$('#close').click(function() {
+    window.close();
+});

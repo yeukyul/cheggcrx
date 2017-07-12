@@ -2,6 +2,7 @@ body {
     min-width:500px;
     box-shadow: -10px 0px 7px #d3d3d3;
     border: none;
+    font-family: "Aspira", "Helvetica", "Arial", Sans-serif;
 }
 
 .header {
@@ -20,7 +21,6 @@ body {
     right: 0;
     margin: 3px 5px 0 5px;
 }
-
 .chegg-logo {
     width: 100px;
 }
@@ -65,10 +65,90 @@ input:focus {
     color: #F07D00;
 }
 
+.fa-bars, .fa-folder {
+    font-size: 150%;
+    color: #fff;
+    transform: scaleX(-1);
+}
+
+.fa-plus {
+    float: right;
+    color: #F07D00;
+}
+
 .search-bar{
     padding: 20px;
 }
 
 a.link-to-chegg {
     font-size: 10pt;
+}
+
+button {
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-family: "Aspira", "Helvetica", "Arial", Sans-serif;
+    font-weight: 700;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+    vertical-align: baseline;
+}
+
+button:focus {
+    outline:0;
+}
+
+.btn-primary, .btn-primary-lg {
+    border-color: #2CAEA6;
+    background-color: #2CAEA6;
+    color: #FFF;
+    height: 44px;
+    line-height: 44px;
+    line-height: 0px\0;
+    border-radius: 8px;
+    font-size: 16px;
+    padding: 0 40px;
+}
+
+
+ul.live-search-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+li.live-search-item {
+    height: 40px;
+}
+li.live-search-item:hover {
+   color: #F07D00;
+}
+
+.see-more {
+    margin: 10px 0 30px;
+}
+
+.concept-definition {
+    padding: 0 60px 0px 60px;
+    margin-bottom: 30px;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.concept-title {
+    margin-bottom: 20px;
+}
+
+.concept-subtitle {
+    font-size: 12pt;
+    color: #BEBEBE;
+    margin: 7px 0 0 0;
+    font-weight: 200;
+}
+
+p {
+    font-size: 11pt;
 }

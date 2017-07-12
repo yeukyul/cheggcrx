@@ -13,6 +13,8 @@
       "run_at": "document_start"
     }
   ],
+    
+  "options_page": "options.html",
 
   "browser_action": {
    "default_icon": "chegg_logo.png",

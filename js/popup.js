@@ -6,5 +6,8 @@
 
 console.log('hello');
 
-$('#close').click({
+$('#close').hover(function() {
+    $('#close').html('<i class="fa fa-folder" aria-hidden="true"></i>');
+}, function() {
+    $('#close').html('<i class="fa fa-folder-o" aria-hidden="true"></i>');
 });
