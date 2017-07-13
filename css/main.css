@@ -187,10 +187,6 @@ p {
     font-size: 11pt;
 }
 
-.selected {
-    background-color: red;
-}
-
 .file-bar {
    
    padding: 20px 20px 0 20px;
